@@ -1,0 +1,710 @@
+#! /usr/bin/less -frnS
+[0;31m======================================================================[0;0m
+[1;33m ┏━╸╻ ╻╺┳╸┏━┓┏━╸┏┳┓┏━╸   ╻ ╻╻  ╺┳╸╻┏┳┓┏━┓╺┳╸┏━╸    ┏┓ ┏━┓┏━┓╻ ╻┏━┓┏━╸[0;0m
+[1;33m ┣╸ ┏╋┛ ┃ ┣┳┛┣╸ ┃┃┃┣╸    ┃ ┃┃   ┃ ┃┃┃┃┣━┫ ┃ ┣╸     ┣┻┓┣━┫┗━┓┣━┫┣┳┛┃[0;0m
+[1;33m ┗━╸╹ ╹ ╹ ╹┗╸┗━╸╹ ╹┗━╸   ┗━┛┗━╸ ╹ ╹╹ ╹╹ ╹ ╹ ┗━╸   ╹┗━┛╹ ╹┗━┛╹ ╹╹┗╸┗━╸[0;0m
+[1;32m Extreme Ultimate .bashrc File Help[0;0m
+[0;36m https://sourceforge.net/projects/ultimate-bashrc/[0;0m
+[0;35m bashrcupdate[1;30m - [0;34mUpdate your ~/.bashrc and help file from SourceForge[0;0m
+[0;31m======================================================================[0;0m
+[1;37m Press [0;33m/[1;37m to search.  Press [0;33mn[1;37m or [0;33mSHIFT-N[1;37m (backwards) to repeat.[0;0m
+[0;32;4m                                                                      [0;0m
+[0;32;4m                          Color Code Legend                           [0;0m
+[0;0m
+[1;31m Title[0;0m
+[0;33m Binary or native command[0;0m
+[0;35m Alias or function (from the Extreme Ultimate .bashrc file)[0;0m
+[0;36m Parameter or options[0;0m
+[0;34m Description[0;0m
+[1;31;4m                                                                      [0;0m
+[1;31;4m                            Bash Shortcuts                            [0;0m
+[0;0m
+[0;35medit[1;30m [0;36m[file][1;30m - [0;34mEdit a file using the default text editor[0;0m
+[0;33msudoedit[1;30m [0;36m[file][1;30m - [0;34mEdit a file using sudo in a secure method[0;0m
+[0;33mCTRL-X-E[1;30m - [0;34mEdit command in an editor [0;36m([0;33mfc[0;36m command will edit last history)[0;0m
+[0;0m
+[0;33mCTRL-Y[1;30m - [0;34mPastes text from the Bash clipboard[0;0m
+[0;33mCTRL-U[1;30m - [0;34mCuts text from the cursor to the beginning of the line [0;36m(Adds to clipboard)[0;0m
+[0;33mCTRL-K[1;30m - [0;34mCuts text from the cursor until the end of the line [0;36m(Adds to clipboard)[0;0m
+[0;33mCTRL-W[1;30m [0;32mor[1;30m [0;33mALT-BACKSPACE[1;30m - [0;34mCut word behind cursor [0;36m(Adds to clipboard)[0;0m
+[0;33mEND CTRL-U[1;30m [0;32mor[1;30m [0;35mCTRL-Q[1;30m - [0;34mCuts and clears the entire line [0;36m(Add to clipboard)[0;0m
+[0;0m
+[0;33mCTRL-A[1;30m [0;32mor[1;30m [0;33mHOME[1;30m - [0;34mMove cursor to the beginning of the line[0;0m
+[0;33mCTRL-E[1;30m [0;32mor[1;30m [0;33mEND[1;30m - [0;34mMove cursor to end of line[0;0m
+[0;33mCTRL-] [0;36mx[1;30m - [0;34mWhere [0;36mx[0;34m is any character, moves the cursor forward to next occurance of [0;36mx[0;0m
+[0;33mALT-CTRL-] [0;36mx[1;30m - [0;34mWhere [0;36mx[0;34m is any character, moves the cursor to previous occurance of [0;36mx[0;0m
+[0;33mCTRL-XX[1;30m - [0;34mMove between start of line and current cursor position [0;36m(and back again)[0;0m
+[0;0m
+[0;33mALT-T[1;30m - [0;34mSwaps the last two words[0;0m
+[0;33mCTRL-T[1;30m - [0;34mSwaps the last two characters[0;0m
+[0;33mALT-U[1;30m - [0;34mCapitalize all characters in a word after the cursor[0;0m
+[0;33mALT-L[1;30m - [0;34mLower case all characters in a word after the cursor[0;0m
+[0;33mALT-.[1;30m - [0;34mUse the last word of the previous command[0;0m
+[0;0m
+[0;33mhistory[1;30m - [0;34mShows your command line history[0;0m
+[0;33m![0;36m10[1;30m - [0;34mRuns the command associated with the numbers listed by the history command[0;0m
+[0;33mUp Arrow[1;30m [0;32mor[1;30m [0;33mCTRL-P[1;30m - [0;34mPrevious command in history[0;0m
+[0;33mDown Arrow[1;30m [0;32mor[1;30m [0;33mCTRL-N[1;30m - [0;34mNext command in history[0;0m
+[0;33mCTRL-S[1;30m - [0;34mSearches the history forward[0;0m
+[0;33mCTRL-R[1;30m - [0;34mSearches the history backward [0;36m(reverse search)[0;0m
+[0;33mALT-R[1;30m - [0;34mUndo any changes to a command from history[0;0m
+[0;33mCTRL-G[1;30m - [0;34mLeave the history searching mode without running the command[0;0m
+[0;33m!![1;30m - [0;34mRepeats the last command [0;36m(i.e. [0;33msudo !![0;36m)[0;0m
+[0;33m!$[1;30m - [0;34mRepeats only the argument from the last command[0;0m
+[0;33m!*[1;30m - [0;34mRepeats all parameters from previous command[0;0m
+[0;33m!^[1;30m - [0;34mRepeats only the first argument from the last command[0;0m
+[0;33m![0;36mabc[1;30m - [0;34mExecute last command in history beginning with abc[0;0m
+[0;33m![0;36mabc[0;33m:p[1;30m - [0;34mPrints last command in history beginning with abc[0;0m
+[0;33mecho "!!" > [0;36m[file.sh][1;30m - [0;34mCreate a script of the last command[0;0m
+[0;33m^[0;36mfind[0;33m^[0;36mreplace[1;30m - [0;34mRepeats the last command but replaces text[0;0m
+[0;33mmv [0;36m/path/to/file[0;33m.{[0;36mtxt[0;33m,[0;36mxml[0;33m}[1;30m - [0;34mBrackets repeat the command with comma delimited changes[0;0m
+[0;35mrepeat[1;30m - [0;34mRepeat a command n times[0;0m
+[0;0m
+[0;33mCTRL-C[1;30m - [0;34mHalts the current command[0;0m
+[0;33mCTRL-Z[1;30m - [0;34mStops the current command [0;36m(resume with [0;33mfg[0;36m in foreground and [0;33mbg[0;36m in background)[0;0m
+[0;33mCTRL-S[1;30m - [0;34mPause terminal output [0;36m(program will keep running)[0;0m
+[0;33mCTRL-Q[1;30m - [0;34mRelease terminal output [0;36m(after being paused)[0;0m
+[0;33mCTRL-L[1;30m - [0;34mClear the screen[0;0m
+[0;33mCTRL-D[1;30m - [0;34mLog out[0;0m
+[0;0m
+[0;33m\[1;30m - [0;34mUse at the end of a line to continue a multi-line command[0;0m
+[0;34m or use at the beginning of a command to bypass an alias.[0;0m
+[0;33mCTRL-ALT-E[1;30m - [0;34mExpand an alias to it's actual code[0;0m
+[0;0m
+[0;32mTo stack multiple commands on one line:[0;0m
+[0;33m&&[1;30m - [0;34mCommands separated by a double ampersand means AND and runs multiple[0;0m
+[0;34m commands synchronously with each one running only if the last did not fail.[0;0m
+[0;33m&[1;30m - [0;34mA single ampersand runs multiple commands asynchronously [0;36m(at the same time).[0;0m
+[0;33m||[1;30m - [0;34mCommands separated by a double pipe means OR and runs multiple[0;0m
+[0;34m commands synchronously with each one running only if the last command failed.[0;0m
+[0;33m(cd /tmp && ls)[1;30m - [0;34mjump to directory, execute command, jump back[0;0m
+[1;31;4m                                                                      [0;0m
+[1;31;4m                         Install and Updates                          [0;0m
+[0;0m
+[0;32mThese aliases detect and use installed package managers on various distros:[0;0m
+[0;35mhas[1;30m [0;36m[package][1;30m - [0;34mShow if a package is installed and it's information and version[0;0m
+[0;35mpkglist[1;30m[1;30m - [0;34mList all installed packages[0;0m
+[0;35mpkgsearch[1;30m [0;36m[package][1;30m - [0;34mSearches for a package[0;0m
+[0;35mpkginstall[1;30m [0;36m[package][1;30m - [0;34mInstalls a package[0;0m
+[0;35mpkgremove[1;30m [0;36m[package][1;30m - [0;34mRemoves a package[0;0m
+[0;35mpkgclean[1;30m [0;36m[package][1;30m - [0;34mRemoves orphans or unused packages[0;0m
+[0;35mpkgupdate[1;30m [0;36m[package][1;30m - [0;34mUpdates an installed package[0;0m
+[0;35mpkgupdateall[1;30m - [0;34mUpdate the system and all packages[0;0m
+[1;31;4m                                                                      [0;0m
+[1;31;4m                       Information and Utility                        [0;0m
+[0;0m
+[0;35mhlp[1;30m - [0;34mShow this help information [0;32m(also CTRL-H)[0;0m
+[0;35ma[1;30m - [0;34mShow a list of available aliases and functions[0;0m
+[0;33malias[1;30m [0;36m[alias][1;30m - [0;34mGive the command(s) for an alias[0;0m
+[0;0m
+[0;35mver[1;30m - [0;34mShow the version of the OS and kernel[0;0m
+[0;33mlsb_release -a[1;30m [0;32mor[1;30m [0;33muname -r[1;30m - [0;34mShow the current version of the operating system[0;0m
+[0;33muname -a[1;30m - [0;34mShow kernel config[0;0m
+[0;33mcat /proc/cpuinfo[1;30m [0;32mor[1;30m [0;35mcpuinfo[1;30m - [0;34mShow CPU information[0;0m
+[0;33mcat /proc/meminfo[1;30m - [0;34mShow memory information[0;0m
+[0;35musb[1;30m - [0;34mShow the USB device tree[0;0m
+[0;35mpci[1;30m - [0;34mShow the PCI device tree[0;0m
+[0;35mwindowinfo[1;30m - [0;34mSelect a window for information like geometry, class name, etc.[0;0m
+[0;33mman [0;36m[command][1;30m - [0;34mShow manual for a command[0;0m
+[0;35mmostused[1;30m - [0;34mSee what command you are using the most[0;0m
+[0;33mman ascii[1;30m - [0;34mASCII table[0;0m
+[0;33mapropos[1;30m - [0;34mFind word in man pages[0;0m
+[0;0m
+[0;33mtype -t[1;30m [0;36m[command][1;30m [0;32mor[1;30m [0;35mcheck[1;30m [0;36m[command][1;30m - [0;34mShow if a command is aliased, a file, or a built-in command[0;0m
+[0;33mwhich [0;36m[app][1;30m - [0;34mShow which app will be run by default[0;0m
+[0;33mwhereis [0;36m[app][1;30m - [0;34mShow possible locations of app[0;0m
+[0;0m
+[0;33mdate[1;30m - [0;34mShow current date and time[0;0m
+[0;35mtoday[1;30m - [0;34mShow the date only[0;0m
+[0;35mnow[1;30m - [0;34mShow the time[0;0m
+[0;33mcal[1;30m - [0;34mShow this month's calendar[0;0m
+[0;33mcal -3[1;30m - [0;34mShow three months spanning the date[0;0m
+[0;33mcal [0;36m1989[1;30m - [0;34mShow a calendar for a specific year[0;0m
+[0;35mstopwatch[1;30m - [0;34mStop watch[0;0m
+[0;33muptime[1;30m - [0;34mShow uptime since last start[0;0m
+[0;0m
+[0;33mxdg-open[1;30m [0;32mor[1;30m [0;35mopen[1;30m - [0;34mLaunch a document/file/url in it's default X application[0;0m
+[0;35mrunfree[1;30m - [0;34mStart a program but immediately disown it and detach it from the terminal[0;0m
+[0;33mglow [0;36m[file.md][1;30m - [0;34mMarkdown viewer (if installed)[0;0m
+[0;35mglowsafe [0;36m[file.md][1;30m - [0;34mMarkdown viewer without internet [0;36m(only local)[0;0m
+[0;35mcsvview[1;30m - [0;34mView any CSV file in the terminal[0;0m
+[0;35mrot13[1;30m - [0;34mRot13 conversion[0;0m
+[0;33mshellcheck[1;30m - [0;34mCheck shell script syntax[0;0m
+[1;31;4m                                                                      [0;0m
+[1;31;4m                          Files and Folders                           [0;0m
+[0;0m
+[0;33mls[1;30m - [0;34mDirectory listing[0;0m
+[0;33mls -al[1;30m - [0;34mFormatted directory listing with hidden files[0;0m
+[0;33mls -d */[1;30m - [0;34mList only the directories[0;0m
+[0;0m
+[0;35mll  [1;30m - [0;34mDirectory listing: long listing format[0;0m
+[0;35mlabc[1;30m - [0;34mDirectory listing: alphabetical sort[0;0m
+[0;35mlx  [1;30m - [0;34mDirectory listing: sort by extension[0;0m
+[0;35mlk  [1;30m - [0;34mDirectory listing: sort by size[0;0m
+[0;35mlt  [1;30m - [0;34mDirectory listing: sort by date[0;0m
+[0;35mlc  [1;30m - [0;34mDirectory listing: sort by change time[0;0m
+[0;35mlu  [1;30m - [0;34mDirectory listing: sort by access time[0;0m
+[0;35mlw  [1;30m - [0;34mDirectory listing: wide listing format[0;0m
+[0;35mlm  [1;30m - [0;34mDirectory listing: pipe through 'more'[0;0m
+[0;35mlr  [1;30m - [0;34mDirectory listing: recursive ls[0;0m
+[0;35ml.  [1;30m - [0;34mDirectory listing: only show hidden files[0;0m
+[0;35mlf  [1;30m - [0;34mDirectory listing: files only[0;0m
+[0;35mltree[1;30m - [0;34mDirectory listing: tree format[0;0m
+[0;35mldir[1;30m - [0;34mDirectory listing: directories only[0;0m
+[0;35mnew [1;30m - [0;34mDirectory listing: recently created/updated files[0;0m
+[0;35mllfs +[0;36m10k[1;30m - [0;34mList all files larger than a given size[0;0m
+[0;0m
+[0;35m..[1;30m - [0;34mGo back 1 folder[0;0m
+[0;35m...[1;30m - [0;34mGo back 2 folders[0;0m
+[0;35m....[1;30m - [0;34mGo back 3 folders[0;0m
+[0;35m.....[1;30m - [0;34mGo back 4 folders[0;0m
+[0;35m..2[1;30m - [0;34mGo back 2 folders[0;0m
+[0;35m..3[1;30m - [0;34mGo back 3 folders[0;0m
+[0;35m..4[1;30m - [0;34mGo back 4 folders[0;0m
+[0;35m..5[1;30m - [0;34mGo back 5 folders[0;0m
+[0;35mup[1;30m - [0;34mgo up a specified number of folders[0;0m
+[0;0m
+[0;33mcd [0;36m[directory][1;30m - [0;34mChange directory[0;0m
+[0;33mcd[1;30m [0;32mor[1;30m [0;33mcd ~[1;30m - [0;34mChange to home[0;0m
+[0;33mcd -[1;30m - [0;34mChange into the previous folder[0;0m
+[0;33mpwd[1;30m - [0;34mShows the directory you’re currently in[0;0m
+[0;35mpwd-[1;30m - [0;34mShows the directory you were previously in[0;0m
+[0;35mpwdtail[1;30m - [0;34mReturns the last 2 fields of the working directory[0;0m
+[0;0m
+[0;33mcp [0;36m[file1][0;33m [0;36m[file2][1;30m - [0;34mCopy file l to file 2[0;0m
+[0;35mcpp[1;30m - [0;34mCopy file with a progress bar[0;0m
+[0;35mcpg[1;30m - [0;34mCopy and go to the directory[0;0m
+[0;0m
+[0;33mmv [0;36m[file1][0;33m [0;36m[file2][1;30m - [0;34mRename file 1 to file 2[0;0m
+[0;33mmv filename.{old,new}[1;30m - [0;34mQuickly rename file extension[0;0m
+[0;35mmvg[1;30m - [0;34mMove and go into a directory[0;0m
+[0;33mmkdir [0;36m[directory][1;30m - [0;34mCreate directory[0;0m
+[0;33mmkdir -p [0;36m[a/long/path][1;30m - [0;34mCreate directory and all subdirectories[0;0m
+[0;35mmkdirg[1;30m - [0;34mCreate and go to the directory[0;0m
+[0;33mrm [0;36m[file][1;30m - [0;34mDelete file[0;0m
+[0;33mrm -f [0;36m[file][1;30m - [0;34mForce remove file[0;0m
+[0;33mrm -rf [0;36m[folder][1;30m [0;32mor[1;30m [0;35mrmd[1;30m [0;36m[folder][1;30m - [0;34mRemove a directory and all contents[0;0m
+[0;33mln -s [0;36m[file] [link][1;30m - [0;34mCreate symbolic link to file[0;0m
+[0;33mtouch [0;36m[file][1;30m - [0;34mCreate or update file[0;0m
+[0;33m> [0;36m[file][1;30m - [0;34mEmpty a file[0;0m
+[0;33mcat > [0;36m[file][1;30m - [0;34mPlace standard input into file[0;0m
+[0;33mcat [0;36m[file][1;30m - [0;34mOutput the contents of file[0;0m
+[0;33mmore [0;36m[file][1;30m - [0;34mOutput the contents of file with paging[0;0m
+[0;33mless [0;36m[file][1;30m - [0;34mOutput the contents of file with paging[0;0m
+[0;33mhead [0;36m[file][1;30m - [0;34mOutput first 10 lines of file[0;0m
+[0;33mhead -n [0;36m[count] [file][1;30m - [0;34mOutput the first specified number of lines[0;0m
+[0;33mtail [0;36m[file][1;30m - [0;34mOutput last 10 lines of file[0;0m
+[0;33mtail -n [0;36m[count] [file][1;30m - [0;34mOutput the last specified number of lines[0;0m
+[0;33mtail -f [0;36m[file][1;30m - [0;34mOutput contents of file as it grows[0;0m
+[0;33mdiff [0;36m[file1] [file2][1;30m [0;32mor[1;30m [0;33mcolordiff[1;30m - [0;34mCompare two files[0;0m
+[0;0m
+[0;35mfullpath[1;30m - [0;34mShows full path of file or wildcard[0;0m
+[0;35mpath[1;30m - [0;34mList the PATH environment variable directories[0;0m
+[0;35mpathappend[1;30m - [0;34mAdd a directory to the end of the path if it exists[0;0m
+[0;35mpathprepend[1;30m - [0;34mAdd a directory to the beginning of the path if it exists[0;0m
+[0;33mdf[1;30m - [0;34mShow disk usage[0;0m
+[0;33mdu[1;30m - [0;34mShow directory space usage[0;0m
+[0;33mdu -sh[1;30m - [0;34mShow human readable size in GB[0;0m
+[0;33mdu -s * | sort -n | tail[1;30m - [0;34mShow 10 biggest files in the current directory[0;0m
+[0;35mdiskspace[1;30m - [0;34mList all folders disk space sorted by largest space[0;0m
+[0;35mfolders[1;30m - [0;34mList disk space of immediate folders one level deep[0;0m
+[0;35mcountfiles[1;30m - [0;34mCount all files [0;36m(recursively)[0;34m in the current folder[0;0m
+[0;33mtree[1;30m - [0;34mShow a folder and file tree[0;0m
+[0;35mtreed[1;30m - [0;34mShow a folder tree[0;0m
+[0;35mtrash[1;30m - [0;34mSend file(s) to the trash (works with most desktop environments)[0;0m
+[0;35mtrashlist[1;30m - [0;34mDisplay the contents of the trash[0;0m
+[0;35mtrashempty[1;30m - [0;34mEmpty and permanently delete all the files in the trash[0;0m
+[0;33mshred[1;30m - [0;34mShred a specified file[0;0m
+[0;0m
+[0;33mlsblk[1;30m - [0;34mList the available block devices[0;0m
+[0;33mmount | column -t[1;30m - [0;34mDisplay mounted filesystems in nice layout[0;0m
+[0;33mmount[1;30m [0;32mor[1;30m [0;35mm[1;30m - [0;34mMount a file system[0;0m
+[0;33mumount[1;30m [0;32mor[1;30m [0;35mum[1;30m - [0;34mUnmount a file system[0;0m
+[0;33mdd if=[0;36m[file.iso][0;33m of=[0;36m[/dev/usb_drive][0;33m status=progress[1;30m - [0;34mMake a bootable USB from an ISO file
+[0;0m
+[0;33mpandoc [0;36m[input.md][0;33m -o [0;36m[output.html][1;30m - [0;34mConvert markdown to HTML [0;36m(Auto-detects extension)[0;0m
+[0;33mpandoc [0;36m[input.md][0;33m -o [0;36m[output.pdf][1;30m - [0;34mConvert markdown to PDF [0;36m(Auto-detects extension)[0;0m
+[0;33mpandoc -f html -t epub3 -o [0;36m[output.epub] 'https://somedomain/page'[1;30m - [0;34mConvert an HTML page to ebook[0;0m
+[0;0m
+[0;35mhome[1;30m - [0;34mGo to your home folder[0;0m
+[0;35mweb[1;30m - [0;34mChange into Apache web folder[0;0m
+[1;31;4m                                                                      [0;0m
+[1;31;4m                              Searching                               [0;0m
+[0;0m
+[0;33mfind [0;36m.[0;33m -type f[1;30m [0;36m[search][1;30m - [0;34mSearch filenames in the current folder[0;0m
+[0;33mfind [0;36m.[0;33m -type f -iname[1;30m [0;36m[search][1;30m [0;32mor[1;30m [0;35mf[1;30m [0;36m[search][1;30m - [0;34mSearch filenames in the current folder and ignore case[0;0m
+[0;33mfind [0;36m.[0;33m -type f -name[1;30m [0;36m*.txt[1;30m [0;32mor[1;30m [0;35mf[1;30m [0;36m*.txt[1;30m - [0;34mSearch for all text files in the current folder[0;0m
+[0;33mfind [0;36m.[0;33m -mtime[1;30m [0;36m10[1;30m - [0;34mSearch filenames modified in the last 10 days[0;0m
+[0;33mfind [0;36m.[0;33m -cmin[1;30m [0;36m-60[1;30m - [0;34mSearch filenames modified in the last hour[0;0m
+[0;33mfind [0;36m.[0;33m -size[1;30m [0;36m+10[0;33m -size[1;30m [0;36m-50[1;30m - [0;34mSearch filenames between 10MB and 50MB[0;0m
+[0;33mfind [0;36m/dir[0;33m -type f -name [0;36m*.mp3[0;33m -size [0;36m+10M[0;33m -exec [0;36mrm[0;33m {} \;[1;30m - [0;34mFind specified files and delete them with -exec[0;0m
+[0;33mfind [0;36m.[0;33m -type d -iname[1;30m [0;36m[search][1;30m [0;32mor[1;30m [0;35mfinddir[1;30m [0;36m[search][1;30m - [0;34mSearch directories in the current folder[0;0m
+[0;33mfind [0;36m.[0;33m -name '.directory' -type f -delete[1;30m - [0;34mDelete Dolphin's hidden .directory files recursively[0;0m
+[0;33mfind [0;36m[/source/dir][0;33m -iname "[0;36m[files.ext][0;33m" -exec cp {} [0;36m[/target/dir][0;33m \;[1;30m - [0;34mCopy files from multiple folders into a single folder[0;0m
+[0;0m
+[0;35mfindtext[1;30m [0;36m[search][1;30m - [0;34mSearches for text in all files in the current folder[0;0m
+[0;35mfindcode[1;30m [0;36m[search][1;30m - [0;34mSearches for text in only code files [0;36m(like HTML, PHP, JS, etc)[0;0m
+[0;33mfzf[1;30m - [0;34mFuzzy file finder [0;36m(must be installed)[0;0m
+[0;35mfzfpreview[1;30m - [0;34mFuzzy file finder with preview[0;0m
+[0;35mh[1;30m [0;36m[search][1;30m - [0;34mSearch command line history [0;36m(also CTRL-S and CTRL-R)[0;0m
+[0;33mgrep [0;36m[pattern][0;33m [files][1;30m - [0;34mSearch for pattern in files[0;0m
+[0;33mgrep -r [0;36m[pattern][0;33m [0;36m[directory][1;30m - [0;34mSearch recursively for pattern[0;0m
+[0;36m[command][0;33m | grep [0;36m[pattern][1;30m - [0;34mSearch for pattern in the output of command[0;0m
+[0;33mpgrep[1;30m [0;36m[search][1;30m - [0;34mFind process by name[0;0m
+[0;33msed -i 's/[0;36m[findtext][0;33m/[0;36m[replacetext][0;33m/g' [0;36m[file][1;30m - [0;34mReplace text in a file[0;0m
+[0;0m
+[0;33mlocate[1;30m - [0;34mFastest file search using mlocate package[0;0m
+[0;33mupdatedb[1;30m - [0;34mUpdate the mlocate file location database[0;0m
+[0;35mulocate[1;30m - [0;34mUpdate the database before locating a file[0;0m
+[0;33mlocate -c[1;30m [0;32mor[1;30m [0;35mlocount[1;30m - [0;34mDisplay the number of matching entries[0;0m
+[1;31;4m                                                                      [0;0m
+[1;31;4m                       Graphics Video and Fonts                       [0;0m
+[0;0m
+[0;33mxrandr -s [0;36m1920x1080[1;30m - [0;34mChange resolution [0;36m(careful with multi-monitor)[0;0m
+[0;33mfawkes[1;30m - [0;34mApplication that distorts images to protect your identity from facial recognition [0;36m(if installed)[0;0m
+[0;0m
+[0;35mcolors[1;30m - [0;34mPrint a list of colors with escape codes[0;0m
+[0;35mcolors256[1;30m - [0;34mPrint a list of all 256 color codes[0;0m
+[0;35mcolors24bit[1;30m - [0;34mTest for 24 bit true color in the terminal[0;0m
+[0;35mrandom_bars[1;30m - [0;34mDraw spark “EQ” type bars across the terminal[0;0m
+[0;35mrandom_bars[0;36m | lolcat[1;30m - [0;34mDraw spark “EQ” type bars across the terminal in color[0;0m
+[0;0m
+[0;33mchafa [0;36m[image.gif][1;30m - [0;34mView an image or video in the console [0;36m(if installed)[0;0m
+[0;33mjp2a --color [0;36m[image.jpg][1;30m - [0;34mCreate an ASCII version of an image [0;36m(if installed)[0;0m
+[0;33mfiglet -w [0;36m[width][0;33m -f [0;36m[font][0;33m [0;36m[text][1;30m - [0;34mCreate ASCII text [0;36m(if installed)[0;0m
+[0;33mtoilet -w [0;36m[width][0;33m -f [0;36m[font][0;33m [0;36m[text][1;30m - [0;34mCreate large ASCII text [0;36m(if installed)[0;0m
+[0;35mtoiletfont[1;30m - [0;34mList the figlet/toilet font directory[0;0m
+[0;35mtoiletfontlist[1;30m - [0;34mShow all the fonts available[0;0m
+[0;0m
+[0;33mffmpeg -hwaccel cuvid -c:v h264_cuvid -i [0;36minput.mp4[0;33m -ss [0;36m1:00[0;33m -to [0;36m2:00[0;33m -c:v h264_nvenc -preset:v slow -profile:v high -rc vbr_hq -b:v 0 -cq 30 -c:a copy -movflags +faststart [0;36moutput.mp4[1;30m - [0;34mTrim Video[0;0m
+[0;33mffmpeg -i input.avi[0;33m -vn -acodec copy [0;36moutput.aac[1;30m - [0;34mExtract Audio from Video[0;0m
+[0;33mffmpeg -i input.mp4[0;33m -c copy -an [0;36moutput.mp4[1;30m - [0;34mStrip Video's Audio[0;0m
+[0;33mffmpeg -y -i input.ts[0;33m -vcodec copy -acodec copy -map 0:v -map 0:a [0;36moutput.mp4[1;30m - [0;34mConvert TS file to MP4[0;0m
+[0;33mffmpeg -f x11grab -s wxga -r 25 -i :0.0 -sameq [0;36m[/tmp/output.mpg][1;30m - [0;34mCapture video of Linux desktop[0;0m
+[1;31;4m                                                                      [0;0m
+[1;31;4m                             Permissions                              [0;0m
+[0;0m
+[0;33mchmod [0;36mu[0;34m=[0;32mr[0;33mw[0;31mx[0;34m,[0;36mg[0;34m=[0;32m[0;32mr[0;33mw[0;31mx[0;34m,[0;36mo[0;34m=[0;32m[0;32mr[0;33mw[0;31mx[0;33m [0;36m[file][1;30m - [0;34mChange permission of file for [0;36mu[0;34mser, [0;36mg[0;34mroup, [0;36mo[0;34mther[0;0m
+[0;33mchmod [0;36m[octal][0;33m [0;36m[file][1;30m - [0;34mChange permission of file using an [0;36moctal[0;0m
+[0;0m
+[0;32mOctal order is user/group/other:[0;0m
+[0;33m4[1;30m - [0;34mread ([0;32mr[0;34m)[0;0m
+[0;33m2[1;30m - [0;34mwrite ([0;33mw[0;34m)[0;0m
+[0;33m1[1;30m - [0;34mexecute ([0;31mx[0;34m)[0;0m
+[0;0m
+[0;32mCommon permission octals for user/group/other:[0;0m
+[0;33m000 [0;0m            [0;34mNo permissions[0;0m
+[0;33m600 [0;32mr[0;33mw[0;30m-[0;0m [0;0m        [0;34mOwner only[0;0m
+[0;33m644 [0;32mr[0;33mw[0;30m-[0;0m [0;32mr[0;30m-[0;30m-[0;0m [0;32mr[0;30m-[0;30m-[0;0m [0;34mOwner only write access[0;0m
+[0;33m664 [0;32mr[0;33mw[0;30m-[0;0m [0;32mr[0;33mw[0;30m-[0;0m [0;32mr[0;30m-[0;30m-[0;0m [0;34mStandard file with world read only[0;0m
+[0;33m666 [0;32mr[0;33mw[0;30m-[0;0m [0;32mr[0;33mw[0;30m-[0;0m [0;32mr[0;33mw[0;30m-[0;0m [0;34mEveryone read write access[0;0m
+[0;33m755 [0;32mr[0;33mw[0;31mx[0;0m [0;32mr[0;30m-[0;31mx[0;0m [0;32mr[0;30m-[0;31mx[0;0m [0;34mExecutable but owner only write access[0;0m
+[0;33m775 [0;32mr[0;33mw[0;31mx[0;0m [0;32mr[0;33mw[0;31mx[0;0m [0;32mr[0;30m-[0;31mx[0;0m [0;34mStandard executable or directory [0;36m(directories require executable)[0;0m
+[0;33m777 [0;32mr[0;33mw[0;31mx[0;0m [0;32mr[0;33mw[0;31mx[0;0m [0;32mr[0;33mw[0;31mx[0;0m [0;34mEveryone full access[0;0m
+[0;0m
+[0;35mchmodcalc[1;30m - [0;34mChmod calculator[0;0m
+[0;35mchmoddirs [0;36m[octal][1;30m - [0;34mRecursively change only folder permissions[0;0m
+[0;35mchmodfiles [0;36m[octal][1;30m - [0;34mRecursively change only file permission[0;0m
+[0;35mfixuserhome [0;36m[optional user][1;30m - [0;34mRepairs and sets proper permissions of the home directory[0;0m
+[0;35mchfix[1;30m - [0;34mRecursively set permissions of code files and directories[0;0m
+[0;33mchmod +x [0;36m[file][1;30m [0;32mor[1;30m [0;35mmx[1;30m - [0;34mmake files executable[0;0m
+[0;33mchmod ug+x ~/[0;32m{.,}[0;33m*.sh[1;30m - [0;34mSet execute with wildcard including all visible and invisible .sh files[0;0m
+[0;33mchmod --reference [0;36m[file1][0;33m [0;36m[file2][1;30m - [0;34mCopy permissions of file 1 to file 2[0;0m
+[0;33mchmod g+s [0;36m[folder][1;30m - [0;34mEnsure that new content in the directory will inherit group ownership[0;0m
+[0;33mls -lh $(which ls)[1;30m [0;36m[command][1;30m - [0;34mShow the location of a command and it's attributes[0;0m
+[1;31;4m                                                                      [0;0m
+[1;31;4m                    Archives and File Compression                     [0;0m
+[0;0m
+[0;32mTar flags:
+[0;33mc[1;30m - [0;34mCreate archive[0;0m       [0;33mj[1;30m - [0;34mUse bzip2 compression[0;0m
+[0;33mt[1;30m - [0;34mTable of contents[0;0m    [0;33mk[1;30m - [0;34mDo not overwrite[0;0m
+[0;33mx[1;30m - [0;34mExtract[0;0m              [0;33mT[1;30m - [0;34mFiles from file[0;0m
+[0;33mf[1;30m - [0;34mSpecifies filename[0;0m   [0;33mw[1;30m - [0;34mAsk for confirmation[0;0m
+[0;33mz[1;30m - [0;34mUse gzip compression[0;0m [0;33mv[1;30m - [0;34mVerbose[0;0m
+[0;33mp[1;30m - [0;34mPreserve pemissions[0;0m  [0;33mX[1;30m - [0;34mExclude[0;0m
+[0;0m
+[0;33mtar -jcvf [0;36m[file.tar.bz2] [file1] [file2][1;30m - [0;34mCreate a bzip2 archive file of file(s)[0;0m
+[0;33mtar -jcvpf [0;36m[file.tar.bz2] [/folder1] [/folder2][1;30m - [0;34mCreate bzip2 from folder(s)[0;0m
+[0;33mpbzip2 --compress --best --force --verbose [0;36m[files][1;30m - [0;34mCreate bzip2 with parallel processors[0;0m
+[0;33mtar -xvjf [0;36m[file.tar.bz2] [files][1;30m - [0;34mExtract a bzip2 archive file[0;0m
+[0;33mtar -jtvf [0;36m[file.tar.bz2][1;30m - [0;34mView contents of a tar.bz2 file[0;0m
+[0;0m
+[0;33mtar -zcvf [0;36m[file.tar.gz] [file1] [file2][1;30m - [0;34mCreate a gzip archive file of file(s)[0;0m
+[0;33mtar -zcvpf [0;36m[file.tar.gz] [/folder1] [/folder2][1;30m - [0;34mCreate gzip from folder(s)[0;0m
+[0;33mtar -I 'pigz --best' -c -f [0;36m[file.tar.gz] [files][1;30m - [0;34mCreate gzip with parallel processors[0;0m
+[0;33mtar -xvzf [0;36m[file.tar.gz] [files][1;30m - [0;34mExtract a gzip archive file[0;0m
+[0;33mtar -ztvf [0;36m[file.tar.gz][1;30m - [0;34mView contents of a tar.gz file[0;0m
+[0;0m
+[0;33mtar -cvf [0;36m[file.tar] [files][1;30m - [0;34mCreate a tar file[0;0m
+[0;33mtar -xvf [0;36m[file.tar] [files][1;30m - [0;34mExtract a tar file[0;0m
+[0;33mtar -tvf [0;36m[file.tar][1;30m - [0;34mView contents of a tar file[0;0m
+[0;0m
+[0;33mzip [0;36m[file.zip] [file1] [file2][1;30m - [0;34mCreate a zip file[0;0m
+[0;33mzip -r [0;36m[file.zip] [/folder1] [/folder2][1;30m - [0;34mCreate a zip from folder(s)[0;0m
+[0;33mzip -9 -e -r [0;36m[file.zip] [/folder][1;30m - [0;34mCreate zip with password and max compression[0;0m
+[0;33munzip [0;36m[file.zip][0;33m -d [0;36m[/destination][1;30m - [0;34mUnzip a zip archive file to a folder[0;0m
+[0;33munzip -l [0;36m[file.zip][1;30m [0;32mor[1;30m [0;33mzipinfo [0;36m[file.zip][1;30m - [0;34mView contents of a zip file[0;0m
+[0;0m
+[0;33mgzip [0;36m[file][1;30m - [0;34mCompress file and rename to file.gz[0;0m
+[0;33mgzip -d [0;36m[file.gz][1;30m - [0;34mDecompress file[0;0m
+[0;0m
+[0;35mextract[1;30m - [0;34mExtract any archive(s)[0;0m
+[0;35mmkbz2[1;30m - [0;34mCreate a bzip2 archive file[0;0m
+[0;35munbz2[1;30m - [0;34mExtract a bzip2 archive file[0;0m
+[0;35mmkgz[1;30m - [0;34mCreate a gzip archive file[0;0m
+[0;35mungz[1;30m - [0;34mExtract a gzip archive file[0;0m
+[0;35mmktar[1;30m - [0;34mCreate a tar file[0;0m
+[0;35muntar[1;30m - [0;34mExtract a tar file[0;0m
+[0;0m
+[0;35mencrypt[1;30m - [0;34mEncrypt a file using OpenSSL AES 256bit Cipher Block Chaining encryption[0;0m
+[0;35mdecrypt[1;30m - [0;34mDecrypt a file using OpenSSL AES 256bit Cipher Block Chaining encryption[0;0m
+[1;31;4m                                                                      [0;0m
+[1;31;4m                 Process Management and Memory Usage                  [0;0m
+[0;0m
+[0;33mtop[1;30m [0;32mor[1;30m [0;33mhtop[1;30m [0;32mor[1;30m [0;33mbtm[1;30m - [0;34mMonitor processes and system resource usage[0;0m
+[0;35mcpu[1;30m - [0;34mShow the top 10 CPU processes[0;0m
+[0;35mfree[1;30m - [0;34mDisplay amount of free and used memory in MB[0;0m
+[0;35mactivewinpid[1;30m - [0;34mGet active X-window process ID [0;36m(3 second delay)[0;0m
+[0;0m
+[0;33mps[1;30m - [0;34mDisplay currently active processes[0;0m
+[0;33mps aux[1;30m - [0;34mDisplay active processes with more detail[0;0m
+[0;33mps aux | sort -nk +4 | tail[1;30m - [0;34mTop 10 running processes sorted by memory usage[0;0m
+[0;33mps aux | grep -i [0;36m[process][1;30m - [0;34mFind a process by name[0;0m
+[0;35msmash[1;30m - [0;34mKill process by name [0;36m(interactive)[0;0m
+[0;33mkill [0;36m[pid][1;30m - [0;34mKill process with specified pid[0;0m
+[0;33mkill -9 [0;36m[pid] [0;34mKill process with specified pid [0;36m(forced)[0;0m
+[0;33mkill -15 [0;36m[pid] [0;34mKill process with specified pid [0;36m(graceful)[0;0m
+[0;33mkillatl proc[1;30m - [0;34mKill al processes named proc[0;0m
+[0;0m
+[0;33mjobs -l[1;30m - [0;34mshow all jobs[0;0m
+[0;33mfg [0;36m[number][1;30m - [0;34mBrings job number to foreground[0;0m
+[0;33mfg[1;30m - [0;34mBring most recent stopped job to foregroundd[0;0m
+[0;33mbg[1;30m - [0;34mLists stopped/background jobs, resume stopped job in background[0;0m
+[1;31;4m                                                                      [0;0m
+[1;31;4m                              Networking                              [0;0m
+[0;0m
+[0;33mcurl [0;36m[http://server.com/file][1;30m - [0;34mDownload a file with curl[0;0m
+[0;33mcurl --output [0;36m[destination_file] [http://server.com/file][1;30m - [0;34mDownload with curl to a specified output[0;0m
+[0;33mwget [0;36m[file][1;30m - [0;34mDownload file with wget[0;0m
+[0;33mwget -O [0;36m[destination_file] [http://server.com/file][1;30m - [0;34mDownload with wget and specify output[0;0m
+[0;33mwget -c [0;36m[file][1;30m - [0;34mContinue stopped download[0;0m
+[0;33mwget -r [0;36m[url][1;30m - [0;34mRecursively download files from URL[0;0m
+[0;33mwget -O[1;30m - [0;34m-q icanhazip.com[1;30m - [0;34mGet your external IP[0;0m
+[0;35mdownload [0;36m[url][1;30m - [0;34mDownload a file[0;0m
+[0;33myoutube-dl -i --no-overwrites --write-description --write-info-json -f 'bestvideo+bestaudio/best' '[0;36mhttps://www.youtube.com/watch?v=[0;33m'[1;30m - [0;34mDownload Youtube Video
+[0;0m
+[0;33mping [0;36m[host][1;30m - [0;34mTest the reachability of a host[0;0m
+[0;35mfastping[1;30m - [0;34mDo not wait for ping interval 1 second [0;36m(go fast)[0;0m
+[0;33mping -i 6O -a [IP][1;30m - [0;34mSet audible alarm for when IP comes online[0;0m
+[0;33mdig [0;36m[domain][1;30m - [0;34mGet DNS for domain[0;0m
+[0;33mdig -x [0;36m[host][1;30m - [0;34mReverse lookup host[0;0m
+[0;0m
+[0;33mlsof -i[1;30m [0;32mor[1;30m [0;35mnetwatch[1;30m - [0;34mWatch real time network activity[0;0m
+[0;35mports[1;30m - [0;34mShow open ports[0;0m
+[0;35miplocal[1;30m - [0;34mGet local IP addresses[0;0m
+[0;35mipexternal[1;30m - [0;34mGet outside external IP addresses[0;0m
+[0;33mvim scp://[0;36m[username@host][0;33m/[0;36m[/path/to/somefile][1;30m - [0;34mremotely edit a file[0;0m
+[0;33mpython -m SimpleHTTPServer[1;30m - [0;34mServe current directory tree at [0;36mhttp://HOSTNAME:8000/[0;0m
+[0;33mnet rpc shutdown -I IPAddressOfWindowsPC -U username%password[1;30m - [0;34mRemotely shutdown windows machine[0;0m
+[0;33msleep 10; alert[1;30m - [0;34mNetwork notify alert for long running commands[0;0m
+[1;31;4m                                                                      [0;0m
+[1;31;4m                        SSH Remote Networking                         [0;0m
+[0;0m
+[0;33mssh [0;36m[user][0;33m@[0;36m[host][1;30m - [0;34mConnect to host as user[0;0m
+[0;33mssh -p 22 [0;36m[user][0;33m@[0;36m[host][1;30m - [0;34mConnect using specified port[0;0m
+[0;33mssh -D [port] [0;36m[user][0;33m@[0;36m[host][1;30m - [0;34mConnect and use bind port[0;0m
+[0;33mssh -t [0;36m[reachable_host][0;33m ssh [0;36m[unreachable_host][1;30m - [0;34mSSH through host in the middle[0;0m
+[0;33mssh [0;36m[user][0;33m@[0;36m[host][0;33m -t tmux new-session -A -s main[1;30m - [0;34mConnect to host as user and start tmux[0;0m
+[0;33msshpass -p '[0;36m[password][0;33m' ssh [0;36m[user][0;33m@[0;36m[host][1;30m - [0;34mConnect to host as user with password in plaintext[0;0m
+[0;33mscp [0;36m[/path/to/local/file][0;33m [0;36m[user][0;33m@[0;36m[host][0;33m:[0;36m[/path/to/remote/directory/][1;30m - [0;34mCopy a local file to a remote host[0;0m
+[0;33mscp [0;36m[user][0;33m@[0;36m[host][0;33m:[0;36m[/path/to/remote/file][0;33m [0;36m[/path/to/local/directory/][1;30m - [0;34mCopy a file from a remote host to a local directory[0;0m
+[0;33msshfs [0;36m[name@server:/path/to/folder][0;33m [0;36m[/path/to/mount/point][1;30m - [0;34mMount file system over SSH[0;0m
+[0;33mrsync -avzhP [0;36m[/local/folder/] [user][0;33m@[0;36m[server][0;33m:[0;36m[/remote/folder/][1;30m - [0;34mSync local to SSH server (one way)[0;0m
+[0;0m
+[0;33mssh-keygen -t rsa -b 4096[1;30m - [0;34mGenerate a new SSH key pair with 4096 bits[0;0m
+[0;33mssh-copy-id [0;36m[user][0;33m@[0;36m[host][1;30m - [0;34mUpload public key for passwordless secure SSH[0;0m
+[1;31;4m                                                                      [0;0m
+[1;31;4m                              Restarting                              [0;0m
+[0;0m
+[0;35mrebootsafe[1;30m - [0;34mreboot safely[0;0m
+[0;35mrebootforce[1;30m - [0;34mforce reboot[0;0m
+[0;0m
+[0;33msudo shutdown -r now[1;30m - [0;34mreboot immediately[0;0m
+[0;33msudo shutdown -P now[1;30m - [0;34mpower down immediately[0;0m
+[0;33msudo shutdown -r [0;36m10[1;30m - [0;34mreboot after 10 minutes[0;0m
+[0;33msudo shutdown -r [0;36m12:34[1;30m - [0;34mreboot after 12 hours and 34 minutes[0;0m
+[0;33msudo reboot -f[1;30m - [0;34mforce reboot[0;0m
+[0;33mlast reboot | head[1;30m - [0;34mshow last 10 reboots[0;0m
+[1;31;4m                                                                      [0;0m
+[1;31;4m                   Compile and Install From Source                    [0;0m
+[0;0m
+[0;33m./configure [0;32m(may not have this)[0;0m
+[0;33mmake[0;0m
+[0;33mmake install[0;0m
+[0;33mmake clean[0;0m
+[1;31;4m                                                                      [0;0m
+[1;31;4m                            Configuration                             [0;0m
+[0;0m
+[0;35mebrc[1;30m - [0;34mEdit the .bashrc file[0;0m
+[0;0m
+[0;33msudo nano /etc/fstab[1;30m - [0;34mEdit startup configuration[0;0m
+[0;33mnano /etc/sysctl.conf[1;30m - [0;34mChange system security[0;0m
+[0;0m
+[0;33msudo systemctl restart httpd[1;30m - [0;34mRestart Apache[0;0m
+[0;33mhttpd -t[0;32m or [0;33msudo apachectl configtest[1;30m - [0;34mCheck the Apache configuration for errors[0;0m
+[0;33mhttpd -V[1;30m - [0;34mFind apache configuration file(s)[0;0m
+[0;35mapacheconfig[1;30m - [0;34mEdit Apache web server configuration[0;0m
+[0;33mmysqld --verbose --help | grep -A 1 "Default options"[1;30m - [0;34mFind MySQL configuration file(s)[0;0m
+[0;35mmysqlconfig[1;30m - [0;34mEdit MySQL database configuration[0;0m
+[0;33mphp -r 'echo php_ini_loaded_file() . "\n";'[1;30m - [0;34mFind the PHP configuration file[0;0m
+[0;35mphpconfig[1;30m - [0;34mEdit the PHP configuration[0;0m
+[0;35mphpchecksyntax[1;30m - [0;34mCheck the syntax of a PHP file for errors[0;0m
+[0;35mhoststoggle[1;30m - [0;34mToggle the hosts file off and back on[0;0m
+[0;0m
+[0;33mchattr +i /etc/php.ini[1;30m - [0;34mProtect a file[0;0m
+[0;33mchattr -i /etc/php.ini[1;30m - [0;34mUnprotect a file[0;0m
+[0;0m
+[0;35mlogs[1;30m - [0;34mShow all logs in /var/log[0;0m
+[0;0m
+[0;33msudo cpupower frequency-info[1;30m - [0;34mInfo about powersaving mode (requires [0;36mcpupower[0;34m or [0;36mlinux-cpupower[0;34m package)[0;0m
+[0;33msudo cpupower frequency-set -g performance[1;30m - [0;34mSet powersaving mode off for performance[0;0m
+[0;33msudo cpupower frequency-set -g powersave[1;30m - [0;34mSet powersaving mode on to save power[0;0m
+[1;31;4m                                                                      [0;0m
+[1;31;4m                       Modify GRUB Boot Loader                        [0;0m
+[0;0m
+[0;33msudo nano /etc/default/grub[0;0m
+[0;33msudo update-grub[0;0m
+[1;31;4m                                                                      [0;0m
+[1;31;4m                 Start/Stop/Restart a Service (systemd)               [0;0m
+[0;0m
+[0;33msudo systemctl start [0;36m[service][1;30m [0;32mor[1;30m [0;35mservicestart[1;30m - [0;34mStart a service[0;0m
+[0;33msudo systemctl stop [0;36m[service][1;30m [0;32mor[1;30m [0;35mservicestop[1;30m - [0;34mStop a service[0;0m
+[0;33msudo systemctl kill [0;36m[service][1;30m [0;32mor[1;30m [0;35mservicekill[1;30m - [0;34mForce terminate a service[0;0m
+[0;33msudo systemctl restart [0;36m[service][1;30m [0;32mor[1;30m [0;35mservicerestart[1;30m - [0;34mRestart a service[0;0m
+[0;33msudo systemctl reload [0;36m[service][1;30m [0;32mor[1;30m [0;35mservicereload[1;30m - [0;34mReload the configuation for a service[0;0m
+[0;33msudo systemctl status [0;36m[service][1;30m [0;32mor[1;30m [0;35mservicestatus[1;30m - [0;34mShow the status of the service[0;0m
+[0;33msudo systemctl is-active [0;36m[service][1;30m - [0;34mCheck if a service is running[0;0m
+[0;33msudo systemctl enable [0;36m[service][1;30m[1;30m - [0;34mEnable a service to run at boot[0;0m
+[0;33msudo systemctl is-enabled [0;36m[service][1;30m - [0;34mCheck if a service is configured to start automatically[0;0m
+[0;33msudo systemctl --failed[1;30m [0;32mor[1;30m [0;35mfailed[1;30m - [0;34mFind what services have failed[0;0m
+[0;33msudo systemctl list-units --type=service[0;32m or [0;35mservicesall[1;30m - [0;34mList all services[0;0m
+[0;35mservices[1;30m - [0;34mList all running or failed services[0;0m
+[0;0m
+[0;35mapacherestart[1;30m - [0;34mRestart the Apache web server (requires Apache to be installed)[0;0m
+[1;31;4m                                                                      [0;0m
+[1;31;4m                      Cron Jobs (cronie Package)                      [0;0m
+[0;0m
+[0;33msudo crontab -l[1;30m - [0;34mList all cron jobs[0;0m
+[0;33msudo -E crontab -e[1;30m - [0;34mEdit the crontab file preserving editor environment variables[0;0m
+[0;0m
+[0;32mEach line has five time-and-date fields followed by a command and new line.[0;0m
+[0;32mThe fields are separated by spaces (fields cannot contain spaces).[0;0m
+[0;32mThe five time-and-date fields are as follows:[0;0m
+[0;0m
+[0;31m minute (0-59)[0;0m
+[0;31m |  [0;33mhour (0-23, 0 = midnight)[0;0m
+[0;31m |  [0;33m|  [0;32mday (1-31)[0;0m
+[0;31m |  [0;33m|  [0;32m|  [0;34mmonth (1-12)[0;0m
+[0;31m |  [0;33m|  [0;32m|  [0;34m|  [0;35mweekday (0-6, 0 = Sunday)[0;0m
+[0;31m |  [0;33m|  [0;32m|  [0;34m|  [0;35m|  [0;0mscript file or executable[0;0m
+[0;31m V  [0;33mV  [0;32mV  [0;34mV  [0;35mV  [0;0mV
+[0;31m 00 [0;33m00 [0;32m01 [0;34m*  [0;35m*  [0;0m/directories/script.sh
+[0;0m
+[0;32mThe cron log is found here: [0;33mnano /var/log/cron[0;0m
+[0;32mMore info here: [0;36mhttps://help.ubuntu.com/community/CronHowto[0;0m
+[0;0m
+[0;32mAnacron directory locations:[0;0m
+[0;33m/etc/cron.d[0;0m
+[0;33m/etc/cron.daily[0;0m
+[0;33m/etc/cron.hourly[0;0m
+[0;33m/etc/cron.weekly[0;0m
+[0;33m/etc/cron.monthly[0;0m
+[1;31;4m                                                                      [0;0m
+[1;31;4m                   Run Commands at Different Times                    [0;0m
+[0;0m
+[0;33mnohup [0;34m[command][0;36m &[1;30m - [0;34mRun commands after you log out of an ssh session[0;0m
+[0;32mExample: nohup wget http://server.com/file.zip &[0;0m
+[0;0m
+[0;33mat [0;36m[time][1;30m - [0;34mRun a linux command at a specific time[0;0m
+[0;32mExample:[0;0m
+[0;32mat 10:38 PM Fri[0;0m
+[0;32mat> echo 'hello'[0;0m
+[0;32mat> CTRL + D[0;0m
+[1;31;4m                                                                      [0;0m
+[1;31;4m                         User Administration                          [0;0m
+[0;0m
+[0;33mcut -d: -f1 /etc/passwd[1;30m - [0;34mList all users and their information[0;0m
+[0;33msudo useradd [0;36m[user][1;30m - [0;34mAdd a new user[0;0m
+[0;33msudo userdel -r [0;36m[user][1;30m - [0;34mDelete an existing user[0;0m
+[0;33msudo usermod -l [0;36m[user][1;30m - [0;34mChange a user's name[0;0m
+[0;33msudo chfn [0;36m[user][1;30m - [0;34mChange the finger information for a user[0;0m
+[0;33msudo passwd [0;36m[user][1;30m - [0;34mChange a user's password[0;0m
+[0;35mgenpw [0;36m[length][1;30m - [0;34mGenerate passwords (optional parameter -s or +s for symbols)[0;0m
+[0;33musermod -a -G wheel [0;36m[user][1;30m - [0;34mMake a user an administrator [0;36m(add to wheel group)[0;0m
+[0;33musermod -a -G wheel,developers [0;36m[user][1;30m - [0;34mMake a user a developer [0;36m(add to developer group)[0;0m
+[0;0m
+[0;33mw[1;30m - [0;34mShows information about the users currently on the machine and their processes[0;0m
+[0;33mw [0;36m[user][1;30m - [0;34mShows the information about a particular user[0;0m
+[0;33mwhoami[1;30m - [0;34mShow who are you logged in as[0;0m
+[0;33mwho[1;30m - [0;34mShows information about users who are currently logged in[0;0m
+[0;33musers[1;30m - [0;34mShows the login names of the users currently on the system[0;0m
+[0;0m
+[0;33msudo chsh --shell [0;36m/bin/bash [user][1;30m - [0;34mChange the default shell for a user[0;0m
+[0;33msudo chsh --list-shells[1;30m - [0;34mPrint the list of shells[0;0m
+[1;31;4m                                                                      [0;0m
+[1;31;4m                         Group Administration                         [0;0m
+[0;0m
+[0;33mgroups[1;30m - [0;34mList groups[0;0m
+[0;33mcut -d: -f1 /etc/group | sort[1;30m - [0;34mList all groups[0;0m
+[0;33msudo groupadd [0;36m[group][1;30m - [0;34mAdd a new group[0;0m
+[0;33msudo groupdel [0;36m[group][1;30m - [0;34mDelete an existing group[0;0m
+[0;33mgrep -i [0;36m[group][0;33m /etc/group[1;30m - [0;34mList all the users in a specified group[0;0m
+[0;33mid -Gn [0;36m[user][1;30m - [0;34mList all the groups for a user[0;0m
+[0;33mfind / -group [0;36m[group][1;30m - [0;34mList all the files owned by a group[0;0m
+[1;31;4m                                                                      [0;0m
+[1;31;4m                            Clam AntiVirus                            [0;0m
+[0;0m
+[0;33mfreshclam[1;30m - [0;34mUpdate clam definitions[0;0m
+[0;0m
+[0;33mclamscan -ir [0;36m[/var/www/html/][0;0m
+[0;0m
+[0;33mclamscan --recursive=yes --infected --log=[0;36m[/tmp/virus_scan.txt][0;33m --move=[0;36m[/tmp/quarantine/][0;0m
+[0;33m --scan-mail=yes --phishing-sigs=yes --phishing-scan-urls=yes [0;36m[/var/www/html/][0;0m
+[0;0m
+[0;33mclamscan -ir / > [0;36m[/tmp/virus_scan.txt][0;0m
+[1;31;4m                                                                      [0;0m
+[1;31;4m                            Rootkit Checks                            [0;0m
+[0;0m
+[0;32mTo update and run RKHunter:[0;0m
+[0;33msudo rkhunter --update[0;0m
+[0;33msudo rkhunter --check[0;0m
+[0;0m
+[0;32mRKHunter keeps its log here:[0;0m
+[0;33m/var/log/rkhunter/[0;36mrkhunter.log[0;0m
+[0;0m
+[0;33mchkrootkit[1;30m - [0;34mAnother rootkit check program[0;0m
+[1;31;4m                                                                      [0;0m
+[1;31;4m                     Security Check With LinPEASS                     [0;0m
+[0;0m
+[0;32mAfter installing peass, you can usually find it here:
+[0;33m/usr/share/peass/linPEAS/linpeas.sh
+[1;31;4m                                                                      [0;0m
+[1;31;4m                       Spectre Meltdown Checker                       [0;0m
+[0;0m
+[0;33mspectre-meltdown-checker[1;30m - [0;34mCheck for Spectre Meltdown bugs[0;0m
+[0;0m
+[0;32mFor more information see:
+[0;33mhttps://github.com/speed47/spectre-meltdown-checker
+[1;31;4m                                                                      [0;0m
+[1;31;4m                     BtrFS File System Utilities                      [0;0m
+[0;0m
+[0;33msudo btrfs fi show[0;32m or [0;35mbtrcheck[1;30m - [0;34mCheck status of raid drives[0;0m
+[0;33msudo btrfs device stats [0;36m[/directory][0;32m or [0;35mbtrstats[1;30m - [0;34mShow device statistics[0;0m
+[0;33msudo btrfs scrub start [0;36m[/directory][0;32m or [0;35mbtrscrub[1;30m - [0;34mStart a scrub[0;0m
+[0;33msudo btrfs scrub resume [0;36m[/directory][0;32m or [0;35mbtrpause[1;30m - [0;34mCancel or pause a scrub[0;0m
+[0;33msudo btrfs scrub resume [0;36m[/directory][0;32m or [0;35mbtrresume[1;30m - [0;34mResume a paused scrub[0;0m
+[0;33msudo btrfs scrub status [0;36m[/directory][0;32m or [0;35mbtrstatus[1;30m - [0;34mShow status of a scrub[0;0m
+[0;33msudo btrfs filesystem defragment -vf [0;36m[file][0;32m or [0;35mbtrdefragfile[1;30m - [0;34mDefrag a file[0;0m
+[0;33msudo btrfs filesystem defragment -rvf [0;36m[/directory][0;32m or [0;35mbtrdefragdir[1;30m - [0;34mDefrag a directory[0;0m
+[1;31;4m                                                                      [0;0m
+[1;31;4m                      Tmux Terminal Multiplexer                       [0;0m
+[0;0m
+[0;32mLoad new session named "main" or attach to this session if it already exists:[0;0m
+[0;33mtmux a -t [0;34mmain[0;33m || tmux new -s [0;34mmain[0;0m
+[0;32m-or- use the alias: [0;35mtm[0;0m
+[0;0m
+[0;33mtmux detach[0;36m or [0;35mtmd[0;36m or [0;32mCTRL-b + d[1;30m - [0;34mDetach from a Tmux session but leave the session running[0;0m
+[0;33mtmux ls[0;36m or [0;35mtmlist[1;30m - [0;34mList all Tmux sessions[0;0m
+[0;33mtmux list-sessions -F "#{session_name}"[1;30m - [0;34mList all Tmux sessions by name only[0;0m
+[0;33mtmux lsc[0;36m or [0;35mtmclients[1;30m - [0;34mList all Tmux clients[0;0m
+[0;33mtmux new -s [0;36m[session][0;36m[session][0;36m or [0;35mtmnew [0;36m[session][0;36m[session][1;30m - [0;34mCreate a new session[0;0m
+[0;33mtmux a -t [0;36m[session][0;36m or [0;35mtmattach [0;36m[session][1;30m - [0;34mAttach to a specified Tmux session [0;36m(-d will detach all other clients)[0;0m
+[0;33mtmux attach[1;30m - [0;34mAttach to an existing Tmux session[0;0m
+[0;33mtmux rename -t [0;36m[session] [new_name][0;36m or [0;35mtmrename [0;36m[session] [new_name][1;30m - [0;34mRename a Tmux session[0;0m
+[0;33mtmux kill-session -t [0;36m[session][0;36m or [0;35mtmkill [0;36m[session][1;30m - [0;34mKill a Tmux session[0;0m
+[0;33mtmux kill-server[0;36m or [0;35mtmreset[1;30m - [0;34mKill all Tmux sessions[0;0m
+[1;31;4m                                                                      [0;0m
+[1;31;4m                Tmux Windows/Panes - Use CTRL-b First                 [0;0m
+[0;0m
+[0;33mc[1;30m - [0;34mNew window[0;0m
+[0;33mn[1;30m - [0;34mNext window[0;0m
+[0;33mp[1;30m - [0;34mPrevious window[0;0m
+[0;33m0-9[1;30m - [0;34mSelect window by number[0;0m
+[0;0m
+[0;33m%[1;30m [0;36mor[1;30m [0;35m\[1;30m - [0;34mSplit a pane into left and right panes[0;0m
+[0;33m"[1;30m [0;36mor[1;30m [0;35m-[1;30m - [0;34mSplit a pane into top and bottom panes[0;0m
+[0;0m
+[0;33mw[1;30m - [0;34mList windows[0;0m
+[0;33mf[1;30m - [0;34mFind window[0;0m
+[0;33m,[1;30m - [0;34mRename window[0;0m
+[0;33m&[1;30m - [0;34mKill window[0;0m
+[0;0m
+[0;33mCTRL-o[1;30m - [0;34mSwap panes[0;0m
+[0;33m{[1;30m - [0;34mMove the current pane left[0;0m
+[0;33m}[1;30m - [0;34mMove the current pane right[0;0m
+[0;33mb[1;30m - [0;34mBreak off pane to it's own window[0;0m
+[0;33mz[1;30m - [0;34mToggle zoom a window (great for copy)[0;0m
+[0;0m
+[0;33mq[1;30m - [0;34mShow pane numbers[0;0m
+[0;33mx[1;30m - [0;34mKill pane [0;36m(or use CTRL-D)[0;0m
+[0;33m![1;30m - [0;34mClose other panes except the current one[0;0m
+[0;0m
+[0;33mPgUp[1;30m - [0;34mScroll one page up and go into scroll mode[0;0m
+[0;33m[[1;30m - [0;34mEnter scroll mode[0;0m
+[0;33mq[1;30m - [0;34mQuit scroll mode[0;0m
+[0;33m][1;30m - [0;34mPaste [0;36m(any text selected is copied)[0;0m
+[0;0m
+[0;32mTo copy and paste in Tmux:[0;0m
+[0;32m*[0m Press the [0;36mCTRL-b[0m and then press [0;36m[[0m to enter the copy mode
+[0;32m*[0m If the mouse is enabled, you can just select the text
+[0;32m*[0m If there is no mouse enabled, use the arrow keys for the start position and press [0;36mCTRL-Space[0m
+[0;32m*[0m Use the arrow keys to the end position and press [0;36mCTRL-w[0m or [0;36mALT-w[0m
+[0;32m*[0m To paste, press [0;36mCTRL-b[0m followed by [0;36m][0m
+[1;31;4m                                                                      [0;0m
+[1;31;4m                                 Git                                  [0;0m
+[0;0m
+[0;33mgit status --short --branch[1;30m - [0;34mShows a short Git status[0;0m
+[0;33mgit status[1;30m - [0;34mShows full Git status[0;0m
+[0;33mgit pull[1;30m - [0;34mGit pull [0;36m(fetch and merge)[0;0m
+[0;33mgit push[1;30m - [0;34mGit push[0;0m
+[0;33mgit add [0;36m[file][1;30m - [0;34mGit add[0;0m
+[0;33mgit add -p [0;36m[file][1;30m - [0;34mGit add interactively choose hunks[0;0m
+[0;33mgit commit -m [0;36m"Commit message"[1;30m - [0;34mGit commit[0;0m
+[0;33mgit reset[1;30m - [0;34mGit reset specifies a file to un-add [0;36m(or no file to unstage all)[0;0m
+[0;33mgit log[1;30m - [0;34mGit log[0;0m
+[0;33mgit diff[1;30m - [0;34mGit diff[0;0m
+[0;33mgit diff --stat[1;30m - [0;34mGit diff stat[0;0m
+[0;33mgit diff --cached[1;30m - [0;34mGit diff cached[0;0m
+[0;33mgit checkout [0;36m[branch][1;30m - [0;34mCheckout a branch[0;0m
+[0;33mgit checkout -b [0;36m[branch][1;30m - [0;34mCreate a new branch[0;0m
+[0;0m
+[0;35mgg[1;30m - [0;34mShows a short Git status or if given arguments invokes Git[0;0m
+[0;35mggg[1;30m - [0;34mShows full Git status[0;0m
+[0;35mggp[1;30m - [0;34mGit pull [0;36m(fetch and merge)[0;0m
+[0;35mggf[1;30m - [0;34mGit fetch[0;0m
+[0;35mggm[1;30m - [0;34mGit merge[0;0m
+[0;35mggpu[1;30m - [0;34mGit push[0;0m
+[0;35mggr[1;30m - [0;34mGit reset specifies a file to un-add [0;36m(or no file to unstage all)[0;0m
+[0;35mgga [0;36m[file][1;30m - [0;34mGit add[0;0m
+[0;35mggap [0;36m[file][1;30m - [0;34mGit add interactively choose hunks[0;0m
+[0;35mggac [0;36m"Commit message"[1;30m - [0;34mGit add all files in current path and commit[0;0m
+[0;35mggc [0;36m"Commit message"[1;30m - [0;34mGit commit[0;0m
+[0;35mggm[1;30m - [0;34mGit commit amend[0;0m
+[0;35mggl[1;30m - [0;34mGit log with improved formatting[0;0m
+[0;35mggd[1;30m - [0;34mGit diff[0;0m
+[0;35mggds[1;30m - [0;34mGit diff stat[0;0m
+[0;35mggdc[1;30m - [0;34mGit diff cached[0;0m
+[0;35mggb [0;36m[branch][1;30m - [0;34mCheckout a branch[0;0m
+[0;35mggcb [0;36m[branch][1;30m - [0;34mCreate a new branch[0;0m
+[0;35mggst[1;30m - [0;34mGit stash[0;0m
+[0;35mggpop[1;30m - [0;34mGit pop[0;0m
+[0;35mgitls[1;30m - [0;34mDirectory listing with Git status shown[0;0m
+[0;35mlg[1;30m - [0;34mIf installed, runs LazyGit[0;0m
+[0;35mggu[1;30m - [0;34mIf installed, runs GitUI[0;0m
+[0;35mgitc[1;30m - [0;34mIf installed, runs Git Commander[0;0m
+[0;35mgitt[1;30m - [0;34mIf installed, runs Tig interface for Git[0;0m
+[0;35mgitrv[1;30m - [0;34mIf installed, runs GRV (Git Repository Viewer)[0;0m
+[0;35mgitundo[1;30m - [0;34mIf installed, runs Ugit Git Undo[0;0m
+[0;0m
+[0;35mgitalias[1;30m - [0;34mInstalls or updates many useful Git alias commands[0;0m
+[0;32mRestart bash to see changes. Visit [0;36mhttps://github.com/GitAlias/gitalias[0;32m for more info[0;0m

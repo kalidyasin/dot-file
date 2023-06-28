@@ -193,10 +193,66 @@ _SKIP_PROMPT_ORIGINAL=false
 # If true, the built-in prompt will split into two lines with a full path
 _PROMPT_BUILTIN_FULL_PATH=false
 
+# Trueline Bash (true 24-bit color and glyph support)
+# This is the prefered prompt since it looks amazing,
+# has so many features, is easily extended using functions,
+# and is a single Bash script file that is easy to install.
+# Link: https://github.com/petobens/trueline
+# Install: wget https://raw.githubusercontent.com/petobens/trueline/master/trueline.sh -P ~/
+# Fonts: https://github.com/powerline/fonts
+_SKIP_PROMPT_TRUELINE=false
+
+# Powerline-Go (this prompt uses no special glyphs)
+# Link: https://github.com/justjanne/powerline-go
+_SKIP_PROMPT_POWERLINE_GO=false
+
+# Powerline-Shell (details about git/svn/hg/fossil branch and Python virtualenv environment)
+# Link: https://github.com/b-ryan/powerline-shell
+_SKIP_PROMPT_POWERLINE_SHELL=false
+
+# Pureline (256 color written in bash script)
+# Link: https://github.com/chris-marsh/pureline
+# Install:
+# git clone https://github.com/chris-marsh/pureline.git
+# cp pureline/configs/powerline_full_256col.conf ~/.pureline.conf
+_SKIP_PROMPT_PURELINE=false
+
 # Starship Cross Shell Prompt (focus on compatibility and written in Rust)
 # Link: https://starship.rs
 # Install: sh -c "$(curl -fsSL https://starship.rs/install.sh)"
 _SKIP_PROMPT_STARSHIP=false
+
+# Oh-My-Git (only used for Git but has huge support for it, requires font)
+# Link: https://github.com/arialdomartini/oh-my-git
+# Install: git clone https://github.com/arialdomartini/oh-my-git.git ~/.oh-my-git
+_SKIP_PROMPT_OH_MY_GIT=false
+
+# Bash Git Prompt (shows git repository, branch name, difference with remote branch, number of files staged, changed, etc)
+# Link: https://github.com/magicmonty/bash-git-prompt
+# Install: git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
+_SKIP_PROMPT_BASH_GIT_PROMPT=false
+
+# Bash Powerline (no need for patched fonts, supports git, previous command execution status, platform-dependent prompt symbols)
+# Link: https://github.com/riobard/bash-powerline
+# Install: curl https://raw.githubusercontent.com/riobard/bash-powerline/master/bash-powerline.sh > ~/.bash-powerline.sh
+_SKIP_PROMPT_BASH_POWERLINE=false
+
+# Sexy Bash Prompt (supports git, 256 color)
+# Link: https://github.com/twolfson/sexy-bash-prompt
+# Install: (cd /tmp && ([[ -d sexy-bash-prompt ]] || git clone --depth 1 --config core.autocrlf=false https://github.com/twolfson/sexy-bash-prompt) && cd sexy-bash-prompt && make install)
+_SKIP_PROMPT_SEXY_BASH_PROMPT=false
+
+# Liquid Prompt (adaptive prompt with low color and no glyphs)
+# Link: https://github.com/nojhan/liquidprompt
+# Install: git clone --branch stable https://github.com/nojhan/liquidprompt.git ~/liquidprompt
+_SKIP_PROMPT_LIQUIDPROMPT=false
+
+# Original Powerline Status Line for Vim Bash Zsh fish tmux IPython Awesome i3 Qtile
+# Link: https://github.com/powerline/powerline
+# Install: https://medium.com/earlybyte/powerline-for-bash-6d3dd004f6fc
+# NOTE: Requires Python and can be used with Trueline in Bash
+# WARNING: This path may change or break in the future with new Python versions
+_SKIP_PROMPT_POWERLINE=true
 
 # Determine our kernel name
 _KERNEL_NAME="$(expr substr $(uname -s) 1 5)"
@@ -714,8 +770,7 @@ if [[ $_SKIP_LS_COLORIZED = false ]]; then
 	# If lsd is installed, use it instead
 	# Link: https://github.com/Peltoche/lsd
 	elif [[ -x "$(command -v lsd)" ]]; then
-		# alias ls='lsd -aF --group-dirs first'
-		alias ls='lsd -F --group-dirs first'
+		alias ls='lsd -aF --group-dirs first'
 		alias ll='lsd --all --header --long --group-dirs first'
 		alias labc='lsd -lav --header'
 		alias lx='lsd -laXh --header'
@@ -895,7 +950,7 @@ alias mv='mv -i'
 alias ln='ln -i'
 
 # Prompt before every removal
-alias rm='rm -i --preserve-root'
+alias rm='rm -I --preserve-root'
 
 # Remove a directory and all files
 alias rmd='\rm --recursive --force --verbose'
@@ -1050,7 +1105,7 @@ if [[ -x "$(command -v lspci)" ]]; then
 fi
 
 # Show jobs
-# alias j='jobs -l'
+alias j='jobs -l'
 
 # Get active X-window process ID after a 3 second delay (requires xdotool)
 if [[ -x "$(command -v xdotool)" ]]; then
@@ -2785,11 +2840,121 @@ if [[ -f "$HOME/.bashrc_prompt" ]] && [[ $_SKIP_PROMPT_ORIGINAL = false ]]; then
 elif [[ -f "$HOME/.config/bashrc/prompt" ]] && [[ $_SKIP_PROMPT_ORIGINAL = false ]]; then
 	source "$HOME/.config/bashrc/prompt"
 
+# Trueline Bash (true 24-bit color and glyph support)
+# This is the prefered prompt since it looks amazing,
+# has so many features, is easily extended using functions,
+# and is a single Bash script file that is easy to install.
+# Link: https://github.com/petobens/trueline
+# Install: wget https://raw.githubusercontent.com/petobens/trueline/master/trueline.sh -P ~/
+# Fonts: https://github.com/powerline/fonts
+elif [[ -f /usr/bin/trueline ]] && [[ $_SKIP_PROMPT_TRUELINE = false ]]; then
+	source /usr/bin/trueline
+elif [[ -f "$HOME/trueline/trueline.sh" ]] && [[ $_SKIP_PROMPT_TRUELINE = false ]]; then
+	source "$HOME/trueline/trueline.sh"
+elif [[ -f "$HOME/trueline.sh" ]] && [[ $_SKIP_PROMPT_TRUELINE = false ]]; then
+	source "$HOME/trueline.sh"
+
+# Powerline-Go Global Install (this prompt uses no special glyphs)
+# Link: https://github.com/justjanne/powerline-go
+elif [[ -f "/usr/bin/powerline-go" ]] && [[ $_SKIP_PROMPT_POWERLINE_GO = false ]]; then
+
+	# Prompt Configuration for Powerline-Go
+	function _powerline_go_update_ps1() {
+		PS1="$(/usr/bin/powerline-go -error $? -jobs $(jobs -p | wc -l))"
+
+		# Automatically clear errors after showing them once (can cause problems)
+		#set "?"
+	}
+	PROMPT_COMMAND="_powerline_go_update_ps1; $PROMPT_COMMAND"
+
+# Powerline-Go Home Folder Install (this prompt uses no special glyphs)
+# Link: https://github.com/justjanne/powerline-go
+elif [[ -f "$GOPATH/bin/powerline-go" ]] && [[ $_SKIP_PROMPT_POWERLINE_GO = false ]]; then
+
+	# Prompt Configuration for Powerline-Go
+	function _powerline_go_update_ps1() {
+		PS1="$($GOPATH/bin/powerline-go -error $? -jobs $(jobs -p | wc -l))"
+
+		# Automatically clear errors after showing them once (can cause problems)
+		#set "?"
+	}
+	PROMPT_COMMAND="_powerline_go_update_ps1; $PROMPT_COMMAND"
+
+# Powerline-Shell (details about git/svn/hg/fossil branch and Python virtualenv environment)
+# Link: https://github.com/b-ryan/powerline-shell
+elif [[ -x "$(command -v powerline-shell)" ]] && [[ $_SKIP_PROMPT_POWERLINE_SHELL = false ]]; then
+
+	# Prompt Configuration for Powerline-Shell
+	function _powerline_shell_update_ps1() {
+		PS1=$(powerline-shell $?)
+	}
+	PROMPT_COMMAND="_powerline_shell_update_ps1; $PROMPT_COMMAND"
+
+# Pureline (256 color written in bash script)
+# Link: https://github.com/chris-marsh/pureline
+# Install:
+# git clone https://github.com/chris-marsh/pureline.git
+# cp pureline/configs/powerline_full_256col.conf ~/.pureline.conf
+elif [[ -f "$HOME/pureline/pureline" ]] && [[ $_SKIP_PROMPT_PURELINE = false ]]; then
+	source "$HOME/pureline/pureline $HOME/.pureline.conf"
+
 # Starship Cross Shell Prompt (focus on compatibility and written in Rust)
 # Link: https://starship.rs
 # Install: sh -c "$(curl -fsSL https://starship.rs/install.sh)"
 elif [[ -x "$(command -v starship)" ]] && [[ $_SKIP_PROMPT_STARSHIP = false ]]; then
 	eval "$(starship init bash)"
+
+# Oh-My-Git (only used for Git but has huge support for it, requires font)
+# Link: https://github.com/arialdomartini/oh-my-git
+# Install: git clone https://github.com/arialdomartini/oh-my-git.git ~/.oh-my-git
+elif [[ -f "$HOME/.oh-my-git/prompt.sh" ]] && [[ $_SKIP_PROMPT_OH_MY_GIT = false ]]; then
+	source "$HOME/.oh-my-git/prompt.sh"
+
+# Bash Git Prompt (shows git repository, branch name, difference with remote branch, number of files staged, changed, etc)
+# Link: https://github.com/magicmonty/bash-git-prompt
+# Install: git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
+elif [[ -f /usr/lib/bash-git-prompt/gitprompt.sh ]] && [[ $_SKIP_PROMPT_BASH_GIT_PROMPT = false ]]; then
+	# To only show the git prompt in or under a repository directory
+	GIT_PROMPT_ONLY_IN_REPO=1
+	# To use upstream's default theme
+	# GIT_PROMPT_THEME=Default
+	# To use upstream's default theme, modified by arch maintainer
+	GIT_PROMPT_THEME=Default_Arch
+	source /usr/lib/bash-git-prompt/gitprompt.sh
+elif [[ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]] && [[ $_SKIP_PROMPT_BASH_GIT_PROMPT = false ]]; then
+	# To only show the git prompt in or under a repository directory
+	GIT_PROMPT_ONLY_IN_REPO=1
+	# To use upstream's default theme
+	# GIT_PROMPT_THEME=Default
+	# To use upstream's default theme, modified by arch maintainer
+	GIT_PROMPT_THEME=Default_Arch
+	source "$HOME/.bash-git-prompt/gitprompt.sh"
+
+# Bash Powerline (no need for patched fonts, supports git, previous command execution status, platform-dependent prompt symbols)
+# Link: https://github.com/riobard/bash-powerline
+# Install: curl https://raw.githubusercontent.com/riobard/bash-powerline/master/bash-powerline.sh > ~/.bash-powerline.sh
+elif [[ -f "$HOME/.bash-powerline.sh" ]] && [[ $_SKIP_PROMPT_BASH_POWERLINE = false ]]; then
+	source "$HOME/.bash-powerline.sh"
+
+# Sexy Bash Prompt (supports git, 256 color)
+# Link: https://github.com/twolfson/sexy-bash-prompt
+# Install: (cd /tmp && ([[ -d sexy-bash-prompt ]] || git clone --depth 1 --config core.autocrlf=false https://github.com/twolfson/sexy-bash-prompt) && cd sexy-bash-prompt && make install)
+elif [[ -f "$HOME/.bash_prompt" ]] && [[ $_SKIP_PROMPT_SEXY_BASH_PROMPT = false ]]; then
+	source "$HOME/.bash_prompt"
+
+# Liquid Prompt (adaptive prompt with low color and no glyphs)
+# Link: https://github.com/nojhan/liquidprompt
+# Install: git clone --branch stable https://github.com/nojhan/liquidprompt.git ~/liquidprompt
+elif [[ -f "$HOME/liquidprompt/liquidprompt" ]] && [[ $_SKIP_PROMPT_LIQUIDPROMPT = false ]]; then
+	source "$HOME/liquidprompt/liquidprompt"
+
+# Original Powerline Status Line for Vim Bash Zsh fish tmux IPython Awesome i3 Qtile
+# Link: https://github.com/powerline/powerline
+# Install: https://medium.com/earlybyte/powerline-for-bash-6d3dd004f6fc
+# NOTE: Requires Python and can be used with Trueline in Bash
+# WARNING: This path may change or break in the future with new Python versions
+elif [[ -f /usr/share/powerline/bash/powerline.sh ]] && [[ $_SKIP_PROMPT_POWERLINE = false ]]; then
+	source /usr/share/powerline/bash/powerline.sh
 fi
 
 #######################################################
@@ -2849,11 +3014,4 @@ if [[ $TILIX_ID ]] || [[ $VTE_VERSION ]]; then
 	if [[ -f /etc/profile.d/vte.sh ]]; then
 		source /etc/profile.d/vte.sh
 	fi
-fi
-
-###################################
-#        Auto Jump Intit               
-###################################
-if [[ -x "$(command -v autojump)" ]]; then
-	. /usr/share/autojump/autojump.bash
 fi

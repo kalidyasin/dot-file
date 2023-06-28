@@ -72,7 +72,6 @@ require('lazy').setup({
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
 
-  -- Neotree related plugins
   {
   'nvim-neo-tree/neo-tree.nvim',
     dependencies = {
@@ -80,17 +79,6 @@ require('lazy').setup({
       "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
       "MunifTanjim/nui.nvim",
     }
-  },
-
-  -- REST.nvim related plugins
-  {
-    'rest-nvim/rest.nvim',
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-    },
-    config = function ()
-      require('plugins/rest')
-    end
   },
 
   -- NOTE: This is where your plugins related to LSP can be installed.
@@ -210,13 +198,6 @@ require('lazy').setup({
       'nvim-treesitter/nvim-treesitter-textobjects',
     },
     build = ':TSUpdate',
-  },
-
-  {
-    -- Auto Pairs {('"
-    'windwp/nvim-autopairs',
-    event = "InsertEnter",
-    opts = {} -- this is equalent to setup({}) function
   },
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
