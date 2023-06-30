@@ -72,27 +72,6 @@ require('lazy').setup({
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
 
-  -- Neotree related plugins
-  {
-  'nvim-neo-tree/neo-tree.nvim',
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-      "MunifTanjim/nui.nvim",
-    }
-  },
-
-  -- REST.nvim related plugins
-  {
-    'rest-nvim/rest.nvim',
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-    },
-    config = function ()
-      require('plugins/rest')
-    end
-  },
-
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
   {
@@ -212,13 +191,6 @@ require('lazy').setup({
     build = ':TSUpdate',
   },
 
-  {
-    -- Auto Pairs {('"
-    'windwp/nvim-autopairs',
-    event = "InsertEnter",
-    opts = {} -- this is equalent to setup({}) function
-  },
-
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
@@ -230,15 +202,25 @@ require('lazy').setup({
   --    up-to-date with whatever is in the kickstart repo.
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
-  --{ import = 'custom.plugins' },
+  { import = 'custom.plugins' },
 }, {})
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
 
+-- Tab to 4 spaceses
+vim.o.tabstop = 4
+vim.o.softtabstop = 4
+vim.o.shiftwidth = 4
+vim.o.expandtab = 4
+
+-- Use Smart Indent
+vim.o.smartindent = true
+
 -- Set highlight on search
 vim.o.hlsearch = false
+vim.o.incsearch = true
 
 -- Make line numbers default
 vim.wo.number = true
@@ -286,9 +268,9 @@ vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = tr
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 --keymaps for neo-tree
-vim.keymap.set('n', '<leader>nn', '<Cmd>Neotree toggle<CR>')
-vim.keymap.set('n', '<leader>nl', '<Cmd>NeoTreeFocusToggle<CR>')
-vim.keymap.set('n', '<leader>nf', '<Cmd>NeoTreeFloatToggle<CR>')
+-- vim.keymap.set('n', '<leader>nn', '<Cmd>Neotree toggle<CR>')
+-- vim.keymap.set('n', '<leader>nl', '<Cmd>NeoTreeFocusToggle<CR>')
+-- vim.keymap.set('n', '<leader>nf', '<Cmd>NeoTreeFloatToggle<CR>')
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
